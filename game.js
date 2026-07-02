@@ -59,8 +59,8 @@ function nextQuestion() {
   document.querySelector("#rightBox .word").textContent =
     gameState.currentQuestion.rightWord;
 
-  document.getElementById("leftBox").className = "answer-card";
-  document.getElementById("rightBox").className = "answer-card";
+  document.getElementById("leftBox").className = "answer-card left-card";
+  document.getElementById("rightBox").className = "answer-card right-card";
   document.getElementById("feedback").textContent = "";
 }
 
@@ -114,9 +114,9 @@ function chooseAnswer(side) {
   }, 900);
 }
 
-function handleKeyboard(e) {
-  if (e.key === "ArrowLeft") chooseAnswer("left");
-  if (e.key === "ArrowRight") chooseAnswer("right");
+function handleKeyboard(event) {
+  if (event.key === "ArrowLeft") chooseAnswer("left");
+  if (event.key === "ArrowRight") chooseAnswer("right");
 }
 
 async function endGame() {
@@ -150,7 +150,7 @@ async function endGame() {
       correct: gameState.correct,
       wrong: gameState.wrong,
       total: gameState.total,
-      accuracy: accuracy
+      accuracy
     });
   } catch (error) {
     console.error(error);
