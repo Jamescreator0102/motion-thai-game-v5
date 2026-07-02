@@ -22,6 +22,7 @@ async function setupPoseAI() {
   poseDetector.onResults(results => {
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (results.poseLandmarks) {
